@@ -24,13 +24,26 @@ public class Game : MonoBehaviour
         
     }
 
-    // plces the cells for the start of the "game"
+    // palces the cells for the start of the "game"
     void PlaceCells(){
+        // creates a cell for the grid
         for(int y = 0; y < SCREEN_HEIGHT; y++){
             for(int x = 0; x < SCREEN_WIDTH; x++){
                 Cell cell = Instantiate(Resources.Load("Prefabs/Cell", typeof(Cell)), new Vector2(x,y), Quaternion.identity) as Cell;
                 grid[x, y] = cell;
+                grid[x, y].SetAlive(RandomAliveCell());
             }
         }
+    }
+
+    // creates random alive cells 
+    bool RandomAliveCell(){
+        // generates random num 
+        int rand = UnityEngine.Random.Range(0, 100);
+        // percent chance of returning true 
+        if(rand > 75){
+            return true;
+        }
+        return false;
     }
 }
