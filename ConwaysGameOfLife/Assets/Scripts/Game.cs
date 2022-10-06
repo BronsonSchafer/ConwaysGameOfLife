@@ -133,6 +133,7 @@ public class Game : MonoBehaviour
                         grid[x,y].SetAlive(true);
                     }
                 }
+                grid[x,y].LowerAliveState();
             }
         }
     }

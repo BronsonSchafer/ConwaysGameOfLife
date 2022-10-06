@@ -20,10 +20,16 @@ public class Cell : MonoBehaviour
             if(aliveState == 0){
                 GetComponent<SpriteRenderer>().enabled = false;
             }
-            else{
-                GetComponent<SpriteRenderer>().enabled = false;
-                //GetComponent<SpriteRenderer>().GetComponent<Renderer>().material.color.a = 0.5f;
-            }
+        }
+    }
+
+    public void LowerAliveState(){
+        if (!isAlive)
+        {
+            aliveState-=1;
+        }
+        if(aliveState == 0){
+            GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
