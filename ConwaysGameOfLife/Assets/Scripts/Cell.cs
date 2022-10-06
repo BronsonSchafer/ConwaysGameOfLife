@@ -8,12 +8,13 @@ public class Cell : MonoBehaviour
     public bool isAlive = false;
     public int aliveState = 0;
     public int numNeighbors = 0;
+    public int maxState = 50;
 
     public void SetAlive (bool alive){
         isAlive = alive;
         if(alive){
             GetComponent<SpriteRenderer>().enabled = true;
-            aliveState = 10;
+            aliveState = maxState;
         }
         else
         {
@@ -27,9 +28,13 @@ public class Cell : MonoBehaviour
         if (!isAlive)
         {
             aliveState-=1;
-        }
-        if(aliveState == 0){
-            GetComponent<SpriteRenderer>().enabled = false;
+            if(aliveState >= 0){
+                // max = 1.0, min == 0.0
+
+                int trans = aliveState;
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, trans*(1.0f));
+            }
+
         }
     }
 }
