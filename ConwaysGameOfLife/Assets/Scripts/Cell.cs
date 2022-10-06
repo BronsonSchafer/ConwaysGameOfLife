@@ -6,16 +6,16 @@ using UnityEngine;
 public class Cell : MonoBehaviour
 {
     public bool isAlive = false;
-    public int numNieghbors = 0;
+    public int numNeighbors = 0;
 
     public void SetAlive (bool alive){
         isAlive = alive;
         if(alive){
-            GetComponet<SpriteRenderer>().enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
-            GetComponet<SpriteRenderer>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
