@@ -20,7 +20,6 @@ public class Game : MonoBehaviour
     {
         // place cells
         PlaceCells();
-        PlaceBackground();
     }
 
     // Update is called once per frame
@@ -147,14 +146,5 @@ public class Game : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    // places the background 
-    void PlaceBackground(){
-        for(int y = 0; y < SCREEN_HEIGHT; y++){
-            for(int x = 0; x < SCREEN_WIDTH; x++){
-                
-            }
-        }
     }
 }
