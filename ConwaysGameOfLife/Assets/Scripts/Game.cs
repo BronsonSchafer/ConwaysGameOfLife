@@ -43,7 +43,6 @@ public class Game : MonoBehaviour
         for (int y = 0; y < SCREEN_HEIGHT; y++){
             for (int x = 0; x < SCREEN_WIDTH; x++){
                 int numNeighbors = 0;
-
                 // North
                 if (y+1 < SCREEN_HEIGHT){
                     if (grid[x, y+1].isAlive){
@@ -87,14 +86,14 @@ public class Game : MonoBehaviour
                     }
                 }
                 // South West
-                if (x=1 >= 0 && y-1 >= 0){
+                if (x-1 >= 0 && y-1 >= 0){
                     if (grid[x-1, y-1].isAlive){
                         numNeighbors++;
                     }
                 }
 
                 // sets the amount of alive neighbors
-                grid[x,y].numNeighbors = numNeighbors;
+                //grid[x,y].numNeighbors = numNeighbors;
             }
         }
     }
