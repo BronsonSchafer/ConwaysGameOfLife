@@ -8,6 +8,10 @@ public class Game : MonoBehaviour
     private static int SCREEN_WIDTH = 64;   // 1024 pixels
     private static int SCREEN_HEIGHT = 48;  // 768 pixels
 
+    // game speed 
+    public float speed = 0.1f;
+    private float timer = 0;
+
     // calls from cell class
     Cell[,] grid = new Cell[SCREEN_WIDTH, SCREEN_HEIGHT];
 
@@ -21,10 +25,17 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // counts the number of alive neighbors 
-        CountNeighbors();
-        // iterate 
-        PopulationControl();
+        if(timer >= speed){
+            timer = 0;
+            // counts the number of alive neighbors 
+            CountNeighbors();
+            // iterate 
+            PopulationControl();
+        }
+        else{
+            // time since last frame
+            timer += Time.deltaTime;
+        }
     }
 
     // places the cells for the start of the "game"
