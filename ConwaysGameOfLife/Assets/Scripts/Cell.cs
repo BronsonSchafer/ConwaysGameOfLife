@@ -30,9 +30,7 @@ public class Cell : MonoBehaviour
             aliveState-=1;
             if(aliveState >= 0){
                 // max = 1.0, min == 0.0
-
-                int trans = aliveState;
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, trans*(1.0f));
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, aliveState*(0.02f));
             }
 
         }
