@@ -5,8 +5,8 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     // holds creen size
-    private static int SCREEN_WIDTH = 64;   // 1024 pixels
-    private static int SCREEN_HEIGHT = 48;  // 768 pixels
+    private static int SCREEN_WIDTH = 256;   // 1024 pixels
+    private static int SCREEN_HEIGHT = 192;  // 768 pixels
 
     // game speed 
     public float speed = 0.1f;
