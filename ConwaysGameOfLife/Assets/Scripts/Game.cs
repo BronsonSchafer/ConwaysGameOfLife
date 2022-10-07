@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
     private static int SCREEN_HEIGHT = 192;  // 768 pixels
 
     // game speed 
-    public float speed = 0.1f;
+    public float speed = 0.0001f;
     private float timer = 0;
 
     // calls from cell class

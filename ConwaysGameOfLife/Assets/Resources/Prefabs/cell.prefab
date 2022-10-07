@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7153466429719195509}
   - component: {fileID: 5854506336348612648}
   - component: {fileID: 4863744028395278833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,4 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 0
+  aliveState: 0
   numNeighbors: 0
+  maxState: 50
