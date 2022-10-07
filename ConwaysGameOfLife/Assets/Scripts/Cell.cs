@@ -8,14 +8,14 @@ public class Cell : MonoBehaviour
     public bool isAlive = false;
     public int aliveState = 0;
     public int numNeighbors = 0;
-    public int maxState = 50;
+    private int maxState = 100;
 
     public void SetAlive (bool alive){
         isAlive = alive;
         if(alive){
             GetComponent<SpriteRenderer>().enabled = true;
             GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, (1.0f));
-            aliveState = maxState;
+            aliveState = this.maxState;
         }
         else
         {
@@ -31,7 +31,8 @@ public class Cell : MonoBehaviour
             if(aliveState >= 0){
                 aliveState-=1;
                 // max = 1.0, min == 0.0
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, aliveState*(0.02f));
+                //double scale = (1.0f)/maxState
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, aliveState*(0.01f));
             }
 
         }

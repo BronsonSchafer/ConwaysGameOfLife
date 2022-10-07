@@ -5,11 +5,11 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     // holds creen size
-    private static int SCREEN_WIDTH = 400;   // 1024 pixels
-    private static int SCREEN_HEIGHT = 400;  // 768 pixels
+    private static int SCREEN_WIDTH = 200;   // 1024 pixels
+    private static int SCREEN_HEIGHT = 200;  // 768 pixels
 
     // game speed 
-    public float speed = 0.1f;
+    public float speed = 0.001f;
     private float timer = 0;
 
     // calls from cell class
@@ -25,12 +25,16 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // counts the number of alive neighbors 
+        CountNeighbors();
+        // iterate 
+        PopulationControl();
         if(timer >= speed){
             timer = 0;
             // counts the number of alive neighbors 
-            CountNeighbors();
+            //CountNeighbors();
             // iterate 
-            PopulationControl();
+            //PopulationControl();
         }
         else{
             // time since last frame
@@ -143,7 +147,7 @@ public class Game : MonoBehaviour
         // generates random num 
         int rand = UnityEngine.Random.Range(0, 100);
         // percent chance of returning true 
-        if(rand > 75){
+        if(rand > 80){
             return true;
         }
         return false;
