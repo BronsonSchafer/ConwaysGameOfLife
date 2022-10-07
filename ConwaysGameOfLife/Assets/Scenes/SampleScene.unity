@@ -261,7 +261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4762548190078089768, guid: 2af67b61294ea4e47bd6d7029fa32c34, type: 3}
       propertyPath: m_Name
-      value: grey
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 8726817040379268763, guid: 2af67b61294ea4e47bd6d7029fa32c34, type: 3}
       propertyPath: m_RootOrder

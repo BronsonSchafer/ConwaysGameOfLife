@@ -14,6 +14,7 @@ public class Cell : MonoBehaviour
         isAlive = alive;
         if(alive){
             GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, (1.0f));
             aliveState = maxState;
         }
         else
@@ -27,8 +28,8 @@ public class Cell : MonoBehaviour
     public void LowerAliveState(){
         if (!isAlive)
         {
-            aliveState-=1;
             if(aliveState >= 0){
+                aliveState-=1;
                 // max = 1.0, min == 0.0
                 GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, aliveState*(0.02f));
             }
