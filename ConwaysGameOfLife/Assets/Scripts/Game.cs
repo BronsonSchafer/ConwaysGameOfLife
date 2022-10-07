@@ -147,7 +147,7 @@ public class Game : MonoBehaviour
         // generates random num 
         int rand = UnityEngine.Random.Range(0, 100);
         // percent chance of returning true 
-        if(rand > 80){
+        if(rand > 69){
             return true;
         }
         return false;
