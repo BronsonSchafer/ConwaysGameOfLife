@@ -10,13 +10,13 @@ public class Cell : MonoBehaviour
     public int numNeighbors = 0;
     private int maxState = 100;
     // start colors 
-    private float rS = 0.0f;
-    private float gS = 0.0f;
-    private float bS = 1.0f;
+    private float rS = 1.0f;
+    private float gS = 0.412f;
+    private float bS = 0.706f;
     // end color 
-    private float rE = 0.0f;
-    private float gE = 1.0f;
-    private float bE = 0.0f;
+    private float rE = 1.0f - 0.627f;
+    private float gE = 0.412f - 0.125f;
+    private float bE = 0.941f - 0.706f;
 
     public void SetAlive (bool alive){
         isAlive = alive;
@@ -40,8 +40,8 @@ public class Cell : MonoBehaviour
             if(aliveState >= 0){
                 aliveState-=1;
                 // max = 1.0, min == 0.0
-                //double scale = (1.0f)/maxState
-                GetComponent<SpriteRenderer>().color = new Color(rS - rE*(1 - aliveState*0.01f), gS + gE*(1 - aliveState*0.01f), bS - (1 - aliveState*0.01f), (aliveState)*(0.01f));
+                float percent = aliveState*0.01f;
+                GetComponent<SpriteRenderer>().color = new Color(rS - (rE*(1-percent)), gS - (gE*(1-percent)), bS + (bE*(1-percent)), percent);
             }
 
         }
