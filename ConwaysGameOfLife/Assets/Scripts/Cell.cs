@@ -8,12 +8,13 @@ public class Cell : MonoBehaviour
     public bool isAlive = false;
     public int aliveState = 0;
     public int numNeighbors = 0;
-    private int maxState = 100;
+    private int maxState = 20;
     // start colors 
     private float rS = 220/255f;
     private float gS = 20/255f;
     private float bS = 60/255f;
-    //Rainbow rainbow = New Rainbow();
+    // rainbow value
+    Rainbow rainbow = new Rainbow();
 
     public void SetAlive (bool alive){
         isAlive = alive;
@@ -37,8 +38,12 @@ public class Cell : MonoBehaviour
             if(aliveState >= 0){
                 aliveState-=1;
                 // max = 1.0, min == 0.0
-                float percent = aliveState*0.01f;
-                GetComponent<SpriteRenderer>().color = new Color(rS, gS, bS, (percent));
+                float trans = aliveState*0.05f;
+                //trans = 1.0f;
+                GetComponent<SpriteRenderer>().color = rainbow.GetColor(aliveState, trans);
+            }
+            else{
+                GetComponent<SpriteRenderer>().enabled = false;
             }
 
         }
