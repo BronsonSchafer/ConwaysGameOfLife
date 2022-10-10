@@ -11,12 +11,9 @@ public class Cell : MonoBehaviour
     private int maxState = 100;
     // start colors 
     private float rS = 1.0f;
-    private float gS = 0.412f;
-    private float bS = 0.706f;
-    // end color 
-    private float rE = 1.0f - 0.627f;
-    private float gE = 0.412f - 0.125f;
-    private float bE = 0.941f - 0.706f;
+    private float gS = 1.0f;
+    private float bS = 1.0f;
+    //Rainbow rainbow = New Rainbow();
 
     public void SetAlive (bool alive){
         isAlive = alive;
@@ -41,7 +38,7 @@ public class Cell : MonoBehaviour
                 aliveState-=1;
                 // max = 1.0, min == 0.0
                 float percent = aliveState*0.01f;
-                GetComponent<SpriteRenderer>().color = new Color(rS - (rE*(1-percent)), gS - (gE*(1-percent)), bS + (bE*(1-percent)), percent);
+                GetComponent<SpriteRenderer>().color = new Color(rS, gS, bS, (1.0f));
             }
 
         }

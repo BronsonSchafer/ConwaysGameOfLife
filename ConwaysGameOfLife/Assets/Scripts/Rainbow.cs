@@ -9,8 +9,8 @@ public class Rainbow : MonoBehaviour
         return GetStage(stage, trans);
     }
 
-    private Color Stages(int stage, float trans){
-        Color color = new Color;
+    private Color GetStage(int stage, float trans){
+        Color color = new Color();
 
         switch(stage){
             case 0:
@@ -26,5 +26,6 @@ public class Rainbow : MonoBehaviour
             default:
                 break;
         }
+        return new Color(0.0f, 0.0f, 0.0f, trans);
     }
 }
