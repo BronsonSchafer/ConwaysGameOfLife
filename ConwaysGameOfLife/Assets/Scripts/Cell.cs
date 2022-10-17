@@ -8,7 +8,7 @@ public class Cell : MonoBehaviour
     public bool isAlive = false;
     public int aliveState = 0;
     public int numNeighbors = 0;
-    private int maxState = 100;
+    private int maxState = 1000;
     // start colors 
     private float rS = 220/255f;
     private float gS = 20/255f;
@@ -38,14 +38,20 @@ public class Cell : MonoBehaviour
             if(aliveState >= 0){
                 aliveState-=1;
                 // max = 1.0, min == 0.0
-                float trans = aliveState*0.02f;
+                //float trans = aliveState*0.02f;
                 //trans = 1.0f;
-                GetComponent<SpriteRenderer>().color = rainbow.GetColor(aliveState, trans);
+                GetComponent<SpriteRenderer>().color = rainbow.GetColor(aliveState/10, 1.0f);
             }
             else{
                 GetComponent<SpriteRenderer>().enabled = false;
             }
-
         }
+    }
+
+    public int getAliveState(){
+        return aliveState;
+    }
+    public void SetAliveState(int val){
+        aliveState = val;
     }
 }

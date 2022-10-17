@@ -40,6 +40,10 @@ public class Game : MonoBehaviour
             // time since last frame
             timer += Time.deltaTime;
         }
+        int blurAmount = 2;
+        for(int i = 0; i < blurAmount; i++){
+            Blur();
+        }
     }
 
     // places the cells for the start of the "game"
@@ -151,5 +155,22 @@ public class Game : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    //blurs the pixels
+    void Blur(){
+        for (int y = 1; y < SCREEN_HEIGHT-1; y++){
+            for (int x = 1; x < SCREEN_WIDTH-1; x++){
+                // if( grid[x,y])
+                int sumY1 = grid[x-1,y+1].getAliveState() + grid[x,y+1].getAliveState() + grid[x+1,y+1].getAliveState();
+                int sumY2 = grid[x-1,y].getAliveState() + grid[x,y].getAliveState() + grid[x+1,y].getAliveState();
+                int sumY3 = grid[x-1,y-1].getAliveState() + grid[x,y-1].getAliveState() + grid[x+1,y-1].getAliveState();
+
+                int sum = sumY1 + sumY2 + sumY3;
+                if(sum > 0){
+                    grid[x,y].SetAliveState(sum/9);
+                }
+            }
+        }
     }
 }
