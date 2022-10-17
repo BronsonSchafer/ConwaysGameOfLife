@@ -8,7 +8,7 @@ public class Cell : MonoBehaviour
     public bool isAlive = false;
     public int aliveState = 0;
     public int numNeighbors = 0;
-    private int maxState = 1000;
+    private int maxState = 175;
     // start colors 
     private float rS = 220/255f;
     private float gS = 20/255f;
@@ -21,15 +21,15 @@ public class Cell : MonoBehaviour
         if(alive){
             GetComponent<SpriteRenderer>().enabled = true;
             // GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, (1.0f));
-            GetComponent<SpriteRenderer>().color = new Color(rS, gS, bS, (1.0f));
+            GetComponent<SpriteRenderer>().color = rainbow.GetColor(35 + (aliveState)/2, 1.0f);
             aliveState = this.maxState;
         }
-        else
-        {
-            if(aliveState == 0){
-                GetComponent<SpriteRenderer>().enabled = false;
-            }
-        }
+        //else
+        //{
+        //   if(aliveState == 0){
+        //        GetComponent<SpriteRenderer>().enabled = false;
+        //    }
+        //}
     }
 
     public void LowerAliveState(){
@@ -40,11 +40,11 @@ public class Cell : MonoBehaviour
                 // max = 1.0, min == 0.0
                 //float trans = aliveState*0.02f;
                 //trans = 1.0f;
-                GetComponent<SpriteRenderer>().color = rainbow.GetColor(aliveState/10, 1.0f);
+                GetComponent<SpriteRenderer>().color = rainbow.GetColor(35+ (aliveState)/2, 1.0f);
             }
-            else{
-                GetComponent<SpriteRenderer>().enabled = false;
-            }
+            //else{
+            //    GetComponent<SpriteRenderer>().enabled = false;
+            //}
         }
     }
 

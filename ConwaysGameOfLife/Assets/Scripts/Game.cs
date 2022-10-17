@@ -19,6 +19,7 @@ public class Game : MonoBehaviour
     void Start()
     {
         // place cells
+        //Time.fixedDeltaTime = 1 / 300;
         PlaceCells();
     }
 
@@ -161,7 +162,9 @@ public class Game : MonoBehaviour
     void Blur(){
         for (int y = 1; y < SCREEN_HEIGHT-1; y++){
             for (int x = 1; x < SCREEN_WIDTH-1; x++){
-                // if( grid[x,y])
+                if( grid[x,y].isAlive){
+                    continue;
+                }
                 int sumY1 = grid[x-1,y+1].getAliveState() + grid[x,y+1].getAliveState() + grid[x+1,y+1].getAliveState();
                 int sumY2 = grid[x-1,y].getAliveState() + grid[x,y].getAliveState() + grid[x+1,y].getAliveState();
                 int sumY3 = grid[x-1,y-1].getAliveState() + grid[x,y-1].getAliveState() + grid[x+1,y-1].getAliveState();

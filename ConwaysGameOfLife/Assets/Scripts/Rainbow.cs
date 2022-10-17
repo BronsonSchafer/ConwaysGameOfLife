@@ -11,7 +11,9 @@ public class Rainbow : MonoBehaviour
 
     private Color GetStage(int stage, float trans){
         Color color = new Color();
-
+        if(stage > 100){
+            stage = 100;
+        }
         switch(stage){
             case 0:
                 return new Color(220/255f, 20/255f, 60/255f, trans);
