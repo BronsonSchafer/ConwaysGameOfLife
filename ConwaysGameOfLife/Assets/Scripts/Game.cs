@@ -1,12 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
+
+struct UpdateCell : IJobParallelFor{
+    //public NativeArray<Cell> cellArray;
+
+    public void Excute(int i){
+        //int size = cellArray.length();
+        //for(int i = 0; i < size; i++){
+        //    Cell GetComponent = cellArray[i].SetAlive(false);
+        //}
+        continue;
+    }
+}
 
 public class Game : MonoBehaviour
 {
     // holds creen size
-    private static int SCREEN_WIDTH = 400;   // 1024 pixels
-    private static int SCREEN_HEIGHT = 400;  // 768 pixels
+    private static int SCREEN_WIDTH = 200;   // 1024 pixels
+    private static int SCREEN_HEIGHT = 200;  // 768 pixels
 
     // game speed 
     public float speed = 0.001f;
